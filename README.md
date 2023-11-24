@@ -13,15 +13,17 @@ Extract Flickr8k_Dataset.zip and place Flicker8k_Dataset in Data folder
 Arabic image captioning, Transformer, Computer vision, Natural language processing, Attention mechanism, Convolutional neural network.
 
 # Sample of our result
-![image](https://github.com/IsraaAbdullah/ARTIC/assets/47572412/fa2ac730-698d-4326-82f0-e9e70cf17544)
+![image](https://github.com/IsraaAbdullah/ARTIC/assets/47572412/75c48705-97c0-4e3b-96d1-7c6705a1731b)
 
 The generated caption by the proposed model:<start> رجل يرتدي ستره حمراء يتسلق صخره <end>
 
-![image](https://github.com/IsraaAbdullah/ARTIC/assets/47572412/2c19d118-1fa4-4cad-af65-dcb42f54dac3)
+
+![image](https://github.com/IsraaAbdullah/ARTIC/assets/47572412/002dcfda-671d-41b5-a3a9-1af86a6900d1)
 
 The generated caption by the proposed model:<start> كلب ابيض واسود يلعب مع كره تنس فمه <end>
 
-![image](https://github.com/IsraaAbdullah/ARTIC/assets/47572412/f621ab10-bec0-487f-80ad-bacf14865c5e)
+
+![image](https://github.com/IsraaAbdullah/ARTIC/assets/47572412/308dbdfa-6eac-4a38-81b8-6a82e7057a1b)
 
 The generated caption by the proposed model:<start> مجموعه من ناس يجلسون على رصيف من مبنى من طوب <end>
 
