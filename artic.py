@@ -5748,55 +5748,7 @@ EfficientNetB4_b1_score=[]
 EfficientNetV2B0_b1_score=[]
 RegNetX120_b1_score=[]
 
-final_caption_using_voting=[]
-def compute_beleu_voting():
-  for i in tqdm(range(len(all_true_test))):
-    vgg16_b1_test,vgg16_b2_test,vgg16_b3_test,vgg16_b4_test = BLEU_corpus([all_true_test[i]], [vgg16_all_gen_test[i]])
-    vgg16_b1_score.append(vgg16_b1_test)
 
-    ResNet101_b1_test,ResNet101_b2_test,ResNet101_b3_test,ResNet101_b4_test = BLEU_corpus([all_true_test[i]], [ResNet101_all_gen_test[i]])
-    ResNet101_b1_score.append(ResNet101_b1_test)
-
-    vgg19_b1_test,vgg19_b2_test,vgg19_b3_test,vgg19_b4_test = BLEU_corpus([all_true_test[i]], [vgg19_all_gen_test[i]])
-    vgg19_b1_score.append(vgg19_b1_test)
-
-    ResNet152_b1_test,ResNet152_b2_test,ResNet152_b3_test,ResNet152_b4_test = BLEU_corpus([all_true_test[i]], [ResNet152_all_gen_test[i]])
-    ResNet152_b1_score.append(ResNet152_b1_test)
-
-    ResNet50_b1_test,ResNet50_b2_test,ResNet50_b3_test,ResNet50_b4_test = BLEU_corpus([all_true_test[i]], [ResNet50_all_gen_test[i]])
-    ResNet50_b1_score.append(ResNet50_b1_test)
-
-    EfficientNetB4_b1_test,EfficientNetB4_b2_test,EfficientNetB4_b3_test,EfficientNetB4_b4_test = BLEU_corpus([all_true_test[i]], [EfficientNetB4_all_gen_test[i]])
-    EfficientNetB4_b1_score.append(EfficientNetB4_b1_test)
-
-    EfficientNetV2B0_b1_test,EfficientNetV2B0_b2_test,EfficientNetV2B0_b3_test,EfficientNetV2B0_b4_test = BLEU_corpus([all_true_test[i]], [EfficientNetV2B0_all_gen_test[i]])
-    EfficientNetV2B0_b1_score.append(EfficientNetV2B0_b1_test)
-
-    RegNetX120_b1_test,RegNetX120_b2_test,RegNetX120_b3_test,RegNetX120_b4_test = BLEU_corpus([all_true_test[i]], [RegNetX120_all_gen_test[i]])
-    RegNetX120_b1_score.append(RegNetX120_b1_test)
-
-  #print('vgg16_b1_test: ',vgg16_b1_score[0])
-
-
-  for i in range(len(all_true_test)):
-    if (vgg16_b1_score[i]>=vgg19_b1_score[i])and(vgg16_b1_score[i]>=ResNet101_b1_score[i])and(vgg16_b1_score[i]>=ResNet152_b1_score[i])and(vgg16_b1_score[i]>=ResNet50_b1_score[i])and(vgg16_b1_score[i]>=EfficientNetB4_b1_score[i])and(vgg16_b1_score[i]>=EfficientNetV2B0_b1_score[i])and(vgg16_b1_score[i]>=RegNetX120_b1_score[i]):
-      final_caption_using_voting.append(vgg16_all_gen_test[i])
-    elif (vgg19_b1_score[i]>=ResNet101_b1_score[i])and(vgg19_b1_score[i]>=ResNet152_b1_score[i])and(vgg19_b1_score[i]>=ResNet50_b1_score[i])and(vgg19_b1_score[i]>=EfficientNetB4_b1_score[i])and(vgg19_b1_score[i]>=EfficientNetV2B0_b1_score[i])and(vgg19_b1_score[i]>=RegNetX120_b1_score[i]):
-      final_caption_using_voting.append(vgg19_all_gen_test[i])
-    elif (ResNet101_b1_score[i]>=ResNet152_b1_score[i])and(ResNet101_b1_score[i]>=ResNet50_b1_score[i])and(ResNet101_b1_score[i]>=EfficientNetB4_b1_score[i])and(ResNet101_b1_score[i]>=EfficientNetV2B0_b1_score[i])and(ResNet101_b1_score[i]>=RegNetX120_b1_score[i]):
-      final_caption_using_voting.append(ResNet101_all_gen_test[i])
-    elif (ResNet152_b1_score[i]>=ResNet50_b1_score[i])and(ResNet152_b1_score[i]>=EfficientNetB4_b1_score[i])and(ResNet152_b1_score[i]>=EfficientNetV2B0_b1_score[i])and(ResNet152_b1_score[i]>=RegNetX120_b1_score[i]):
-      final_caption_using_voting.append(ResNet152_all_gen_test[i])
-    elif (ResNet50_b1_score[i]>=EfficientNetB4_b1_score[i])and(ResNet50_b1_score[i]>=EfficientNetV2B0_b1_score[i])and(ResNet50_b1_score[i]>=RegNetX120_b1_score[i]):
-      final_caption_using_voting.append(ResNet50_all_gen_test[i])
-    elif (EfficientNetB4_b1_score[i]>=EfficientNetV2B0_b1_score[i])and(EfficientNetB4_b1_score[i]>=RegNetX120_b1_score[i]):
-      final_caption_using_voting.append(EfficientNetB4_all_gen_test[i])
-    elif (EfficientNetV2B0_b1_score[i]>=RegNetX120_b1_score[i]):
-      final_caption_using_voting.append(EfficientNetV2B0_all_gen_test[i])
-    else:
-      final_caption_using_voting.append(RegNetX120_all_gen_test[i])
-
-compute_beleu_voting()
 
 !pip install pycocoevalcap
 from pycocoevalcap.bleu.bleu import Bleu
